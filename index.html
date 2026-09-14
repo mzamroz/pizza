@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f7f3e9"><meta name="description" content="Twoja mała pizzeria. Układaj składniki, piecz pizzę i realizuj zamówienia w Pizza Piccola.">
+  <title>Pizza Piccola — Twoja mała pizzeria</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Pizza Piccola — strona główna"><span class="brand-icon">◔</span><span>PIZZA <b>PICCOLA</b><small>MAŁY LOKAL. WIELKA PIZZA.</small></span></a>
+    <nav class="mode-switch" aria-label="Tryb gry"><button class="active" id="ordersMode" aria-pressed="true">Moja pizzeria</button><button id="freeMode" aria-pressed="false">Gotuj po swojemu <span>↗</span></button></nav>
+    <div class="profile"><span class="level-icon">✦</span><span><small>POZIOM <span id="level">1</span></small><b id="rank">Początkujący pizzaiolo</b></span><span class="coins"><i>●</i> <b id="coins">0</b></span></div>
+  </header>
+  <main>
+    <section class="intro"><div><div class="eyebrow"><span></span> OTWARTE. CIASTO JUŻ CZEKA.</div><h1>Trochę serca.<br>Dużo <em>pizzy.</em></h1><p>Twój blat, twoje składniki, twoja mała Italia.</p></div><div class="daily-note"><span>fatto a mano</span><svg viewBox="0 0 100 50" aria-hidden="true"><path d="M8 8Q40 45 85 18M72 15l15 2-6 13"/></svg><p>Najlepsza pizza?<br>Ta zrobiona przez Ciebie.</p></div></section>
+    <div class="game-layout">
+      <aside class="order-column">
+        <section class="ticket" aria-labelledby="ticketTitle"><div class="ticket-top"><span id="orderNumber">ZAMÓWIENIE #001</span><span class="ticket-dots">•••</span></div><div class="customer"><div class="avatar">👨🏻</div><div><h2 id="customerName">Ciao, jestem Marco!</h2><span id="customerSubtitle">Mam ochotę na coś klasycznego.</span></div></div><blockquote id="orderQuote">„Salami, pieczarki i trochę bazylii. Tak jak w mojej ulubionej pizzerii!”</blockquote><div class="dashed"></div><div class="recipe-heading"><h3 id="ticketTitle">Pizza del giorno</h3><span>32 cm</span></div><p class="base-note">Sos pomidorowy i ser już na miejscu.</p><ul id="recipe" class="recipe"></ul><div class="dashed"></div><div class="reward"><span>Do zdobycia</span><strong id="reward">do 120 monet <i>✦</i></strong></div><div class="ticket-footer">FATTA CON AMORE <span>♥</span> DAL 2026</div></section>
+        <div class="tip"><span>✧</span><p><b>Mała rada od szefa</b><span id="chefTip">Rozłóż składniki równomiernie. Niech każdy kawałek smakuje tak samo dobrze.</span></p></div>
+        <button class="help-button" id="helpBtn">ⓘ <span>Pierwszy dzień? Jak grać</span> ↗</button>
+      </aside>
+      <section class="workstation" aria-label="Blat do komponowania pizzy">
+        <div class="workspace-top"><span><i></i> <span id="workspaceLabel">TWÓJ BLAT</span></span><div class="tools"><button id="undoBtn" title="Cofnij ostatni składnik (Ctrl+Z)" aria-label="Cofnij ostatni składnik">↶</button><button id="eraseBtn" title="Usuwaj składniki" aria-label="Usuwaj składniki" aria-pressed="false">⌫</button><span></span><button id="clearBtn" title="Zacznij pizzę od nowa" aria-label="Wyczyść pizzę">↻</button></div></div>
+        <div class="pizza-scene" id="pizzaScene"><div class="flour flour-one"></div><div class="flour flour-two"></div><div class="board-handle"></div><div class="board"><canvas id="pizzaCanvas" width="900" height="900" tabindex="0" role="application" aria-label="Pizza. Wybierz składnik i kliknij, aby go położyć. Strzałki przesuwają kursor, Enter dodaje składnik."></canvas></div><div class="basil-decoration" aria-hidden="true"><i></i><i></i><i></i></div><span class="size-note">32 cm di felicità</span><div class="baking-overlay" id="bakingOverlay" hidden><span>♨</span><h3>W piecu dzieje się magia…</h3><p>Jeszcze chwila i będzie perfetto.</p><div class="baking-track"><i></i></div></div></div>
+        <div class="canvas-hint"><span id="selectedIcon"></span><p id="canvasHint">Wybierz składnik i połóż go na pizzy</p></div>
+        <div class="bake-bar"><div><span>LA TUA PIZZA</span><b id="pieceCount">0 składników na placku</b></div><button class="bake-button" id="bakeBtn">Do pieca! <span>♨</span></button></div>
+      </section>
+      <aside class="pantry"><div class="pantry-heading"><div class="eyebrow">FRESCO, SEMPRE.</div><h2>Dobre składniki.<br>Wielkie możliwości.</h2><p>Kliknij lub przeciągnij na pizzę.</p></div><div class="ingredient-grid" id="ingredients"></div><div class="pantry-footer"><span>✿</span> Zawsze świeże. Zawsze od serca.</div></aside>
+    </div>
+    <footer class="page-footer"><span>BUON APPETITO! <span>♥</span></span><p>Mały kawałek Włoch, prosto z Twojej przeglądarki.</p><button id="soundBtn" aria-pressed="false">♫ <span>Dźwięk wyłączony</span></button></footer>
+  </main>
+  <div class="toast" id="toast" role="status"></div>
+  <dialog id="resultDialog"><button class="close-dialog" id="closeResult" aria-label="Zamknij">×</button><div class="eyebrow">PROSTO Z PIECA</div><div class="result-pizza"><img id="resultImage" alt="Twoja upieczona pizza"></div><div class="stars" id="stars">★★★</div><h2 id="resultTitle">Mamma mia!</h2><p id="resultDescription"></p><div class="result-stats" id="resultStats"></div><button class="bake-button" id="nextBtn">Kolejne zamówienie <span>→</span></button></dialog>
+  <dialog id="helpDialog"><button class="close-dialog" id="closeHelp" aria-label="Zamknij">×</button><div class="eyebrow">BENVENUTO, PIZZAIOLO!</div><h2>Twoja pierwsza pizza.</h2><ol><li><b>Przeczytaj zamówienie.</b> Liczby pokazują, ile porcji każdego składnika potrzebuje klient.</li><li><b>Wybierz i układaj.</b> Kliknij składnik, a potem pizzę. Możesz też przeciągać składniki na placek.</li><li><b>Zadbaj o każdy kawałek.</b> Równomierne rozłożenie podnosi ocenę. Strzałka cofa ruch, gumka usuwa wybrane dodatki.</li><li><b>Do pieca!</b> Odbierz ocenę i monety, a potem podejmij kolejne zamówienie.</li></ol><p>W trybie „Gotuj po swojemu” nie ma przepisów ani ocen. Po prostu baw się smakiem.</p><p class="keyboard-note">Klawiatura: wybierz składnik Tabem i Enterem. Na pizzy użyj strzałek i Entera. Ctrl/⌘ + Z cofa ruch.</p><button class="bake-button" id="startBtn">Andiamo! Zaczynamy <span>→</span></button></dialog>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
