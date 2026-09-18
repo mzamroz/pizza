@@ -10,12 +10,13 @@ Wymagany Node.js 18 lub nowszy.
 npm run dev
 ```
 
-Otwórz http://localhost:5173. Testy logiki gry: `npm test`.
+Otwórz http://localhost:5173 (albo inny port: `PORT=5174 npm run dev`). Testy logiki gry: `npm test`.
 
 ## Rozgrywka
 
 - Wybierz składnik i klikaj na pizzy albo przeciągaj dodatki z zasobnika.
-- Realizuj kolejne zamówienia. Zgodność ilości składników i ich równomierne rozłożenie wpływają na ocenę oraz monety.
+- Realizuj kolejne zamówienia. Zgodność ilości, pokrycie całego placka (środek i brzeg) oraz równomierne rozłożenie wpływają na ocenę oraz monety.
+- Wskaźnik pokrycia i rada szefa podpowiadają w trakcie układania. Wyższy poziom odblokowuje nowych klientów i gęstsze pizze.
 - Cofaj ruchy, usuwaj pojedyncze składniki lub wyczyść placek. Czyszczenie też można cofnąć.
 - Kliknij „Do pieca!”, odbierz wynik i przejdź do następnego klienta.
 - Tryb „Gotuj po swojemu” pozwala tworzyć bez ocen. Przełączanie trybów zachowuje niedokończone pizze w pamięci bieżącej sesji.
