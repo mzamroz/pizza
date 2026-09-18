@@ -12,6 +12,8 @@ npm run dev
 
 Otwórz http://localhost:5173 (albo inny port: `PORT=5174 npm run dev`). Testy logiki gry: `npm test`.
 
+Po wgraniu nowej wersji podbij `version` w `package.json` oraz `?v=` w `index.html` i `game.js` (albo uruchamiaj przez `npm start` — serwer sam doklei `?v=` z `package.json`). Dzięki temu przeglądarka pobierze świeże CSS/JS zamiast trzymać cache.
+
 ## Rozgrywka
 
 - Wybierz składnik i klikaj na pizzy albo przeciągaj dodatki z zasobnika.

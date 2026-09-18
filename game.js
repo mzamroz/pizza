@@ -1,5 +1,5 @@
-import { ingredients, orders, counts, insidePizza, scorePizza, pizzaCoverage, orderIndexForServed, levelFromServed } from './engine.js';
-import { createBase, drawIngredient, makeIcon } from './art.js';
+import { ingredients, orders, counts, insidePizza, scorePizza, pizzaCoverage, orderIndexForServed, levelFromServed } from './engine.js?v=1.1.0';
+import { createBase, drawIngredient, makeIcon } from './art.js?v=1.1.0';
 const $=id=>document.getElementById(id), canvas=$('pizzaCanvas'), ctx=canvas.getContext('2d'), base=createBase();
 const PIECE_SIZE_MIN=1.45, PIECE_SIZE_RANGE=.2, PREVIEW_SIZE=1.55, ERASE_RADIUS=65, KEYBOARD_RING=58;
 let pieces=[], history=[], selected='salami', erasing=false, mode='orders', baking=false, completed=false, pointer=null, keyboard=false, sound=false, audioContext, toastTimer, dragId=null;
